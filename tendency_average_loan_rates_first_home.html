@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>首套房平均利率走势</title>
+		<script src="echarts/echarts.js"></script>	
+	</head>
+	
+	<body>
+		<div id="menu" style="width: 90%;" align="right">			
+			<select>			
+				<option value="country">全国</option>
+				<option value="beijing">北京</option>
+				<option value="shanghai">上海</option>
+				<option value="guangzhou">广州</option>
+				<option value="qingdao">青岛</option>
+				<option value="nanjing">南京</option>
+				<option value="suzhou">苏州</option>
+				<option value="dalian">大连</option>
+				<option value="tianjin">天津</option>
+				<option value="wuxi">无锡</option>
+				<option value="chongqing">重庆</option>
+				<option value="zhuhai">珠海</option>
+				<option value="jinan">济南</option>
+				<option value="hangzhou">杭州</option>
+			</select>
+		</div>
+		
+	    <div id="main" style="width: 100%;height:400px;">	
+		    <script type="text/javascript">
+		        var myChart = echarts.init(document.getElementById('main'));
+		        var option = {
+					title : {
+						text: '首套房平均利率走势',
+						subtext: '数据来自融360',
+				        x: 'center',
+				        align: 'right' },
+				    grid: { bottom: 100 },
+				  	tooltip : { 
+				        trigger: 'axis',
+				        formatter: "{b}<br/>{a} : {c}%" },				    
+				    dataZoom: [ 
+				        {
+				            show: true,
+				            realtime: true,
+				            start: 60,
+				            end: 100 },
+				        {
+				            type: 'inside',
+				            realtime: true,
+				            start: 60,
+				            end: 80 } ],
+				    xAxis : [ {
+				            type : 'category',
+				            boundaryGap : false,
+				            axisLine: {onZero: false},
+				            data : [
+				                '2015年1月', '2015年2月', '2015年3月','2015年4月', '2015年5月', '2015年6月',
+				                '2015年7月', '2015年8月', '2015年9月','2015年10月', '2015年11月', '2015年12月',
+				                '2016年1月'
+				                  ].map(function (str) {
+				                return str.replace(' ', '\n') } ) } ],
+				    yAxis: [ {
+				            name: '利率(%)',
+				            type: 'value',
+				            max: 8 } ],
+				    series: [ {
+				            name:'平均利率',
+				            type:'line',
+				            hoverAnimation: false,
+				            lineStyle: {
+				                normal: { width: 1 } },
+				            data:[6.10, 5.80, 5.78, 5.78, 5.48, 5.46, 5.21, 5.18, 4.93, 4.92, 4.66, 4.63, 4.50] } ]
+				};
+		        myChart.setOption(option);
+		    </script>
+	    </div>
+	</body>
+	
+</html>

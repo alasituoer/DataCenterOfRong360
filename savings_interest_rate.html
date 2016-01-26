@@ -1,0 +1,225 @@
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>储蓄利率</title>
+		<script src="echarts/echarts.js"></script> 
+	</head>
+	
+	<body>
+		<div>
+		
+			<div id="city" style="width: 80%; height: 0px" align="right" float='left'>			
+				<select>						
+					<option value="beijing">北京</option>
+					<option value="shanghai">上海</option>
+					<option value="guangzhou">广州</option>
+					<option value="qingdao">青岛</option>
+					<option value="nanjing">南京</option>
+					<option value="suzhou">苏州</option>
+					<option value="dalian">大连</option>
+					<option value="tianjin">天津</option>
+					<option value="wuxi">无锡</option>
+					<option value="chongqing">重庆</option>
+					<option value="zhuhai">珠海</option>
+					<option value="jinan">济南</option>
+					<option value="hangzhou">杭州</option>
+					<option value="chengdu">成都</option>
+					<option value="wuhan">武汉</option>
+					<option value="changsha">长沙</option>
+					<option value="xian">西安</option>
+					<option value="taiyuan">太原</option>
+					<option value="zhengzhou">郑州</option>
+					<option value="hefei">合肥</option>
+					<option value="kunming">昆明</option>
+					<option value="guiyang">贵阳</option>
+					<option value="changchun">长春</option>
+					<option value="nanchang">南昌</option>
+					<option value="xiamen">厦门</option>					
+					<option value="ningbo">宁波</option>					
+					<option value="fuzhou">福州</option>
+					<option value="haikou">海口</option>
+					<option value="foshan">佛山</option>
+					<option value="dongguan">东莞</option>
+					<option value="haerbin">哈尔滨</option>
+					<option value="shijiazhuang">石家庄</option>
+					<option value="wulumuqi">乌鲁木齐</option>				 
+				</select>
+			</div>
+			<div id="bank" style="width: 90%;" align="right",float='left'>			
+				<select>			
+					<option value="gs">工商银行</option>
+					<option value="ny">农业银行</option>
+					<option value="zg">中国银行</option>
+					<option value="js">建设银行</option>
+					<option value="zs">招商银行</option>
+					<option value="yc">邮储银行</option>
+					<option value="jt">交通银行</option>
+					<option value="zx">中信银行</option>
+					<option value="gd">光大银行</option>
+					<option value="ms">民生银行</option>
+					<option value="gf">广发银行</option>
+					<option value="pf">浦发银行</option>
+					<option value="xy">兴业银行</option>
+					<option value="hx">华夏银行</option>
+					<option value="dy">东亚银行</option>
+					<option value="zd">渣打银行</option>
+					<option value="hq">花旗银行</option>
+					<option value="hf">汇丰银行</option>
+					<option value="hs">恒生银行</option>
+				</select>
+			</div>
+			
+		</div>
+		
+	    <div id="main" style="width: 100%;height:400px;"></div>
+	    <script type="text/javascript">
+	        var myChart = echarts.init(document.getElementById('main'));
+	        var dataMap = {};
+			function dataFormatter(obj) {
+			    var pList = ['北京','天津','河北','山西','内蒙古','辽宁','吉林'];
+			    var temp;
+			    for (var year = 201508; year <= 201512; year++) {
+			        var max = 0;
+			        var sum = 0;
+			        temp = obj[year];
+			        for (var i = 0, l = temp.length; i < l; i++) {
+			            max = Math.max(max, temp[i]);
+			            sum += temp[i];
+			            obj[year][i] = {
+			                name : pList[i],
+			                value : temp[i] } }
+			        obj[year + 'max'] = Math.floor(max / 100) * 100;
+			        obj[year + 'sum'] = sum; }
+			    return obj;
+			}
+			
+			dataMap.data3month = dataFormatter({
+			    //max : 60000,
+			    201508:[0.385,2,0,1.2,0,0],
+				201509:[0.35,1.75,0,1.05,0,0],
+				201510:[0.3,1.4,0,0.84,0,0],
+				201511:[0.3,1.4,0,0.84,0,0],
+				201512:[0.385,1.75,0,1.05,0,0]
+			});
+			
+			dataMap.data6month = dataFormatter({
+			    //max : 4000,
+				201508:[0.385,2.25,0,1.35,0,0],
+				201509:[0.35,2,0,1.2,0,0],
+				201510:[0.3,1.65,0,0.99,0,0],
+				201511:[0.3,1.65,0,0.99,0,0],
+				201512:[0.385,2,0,1.2,0,0]
+			});
+			
+			dataMap.data1year = dataFormatter({
+			    //max : 26600,
+			    201508:[0.385,2.5,2,1.5,2,2],
+				201509:[0.35,2.25,1.75,1.35,1.75,1.75],
+				201510:[0.3,1.95,1.5,1.17,1.5,1.5],
+				201511:[0.3,1.95,1.4,1.17,1.4,1.4],
+				201512:[0.385,2.25,1.75,1.35,1.75,1.75]
+			});
+			
+			dataMap.data2year = dataFormatter({
+			    //max : 25000,
+			    201508:[0.385,2.9,0,0,0,0],
+				201509:[0.35,2.65,0,0,0,0],
+				201510:[0.3,2.4,0,0,0,0],
+				201511:[0.3,2.4,0,0,0,0],
+				201512:[0.385,2.9,0,0,0,0]
+			});
+			
+			dataMap.data3year = dataFormatter({
+			    //max : 3600,
+				201508:[0.385,3.5,2.25,0,2.25,2.25],
+				201509:[0.35,3.25,2,0,2,2],
+				201510:[0.3,3,1.75,0,1.75,1.75],
+				201511:[0.3,3,1.65,0,1.65,1.65],
+				201512:[0.385,3.5,2,0,2,2]
+			});
+			
+			dataMap.data5year = dataFormatter({
+			    //max : 3200,
+			    201508:[0.385,3.6,2.25,0,2.25,2.25],
+				201509:[0.35,3.3,2,0,2,2],
+				201510:[0.3,3,1.75,0,1.75,1.75],
+				201511:[0.3,3,1.65,0,1.65,1.65],
+				201512:[0.385,3.25,2.25,0,2.25,2.25]
+			});
+	        	      	        
+	        var option = {
+			    baseOption: {		
+			        timeline: {
+			            axisType: 'category',
+			            autoPlay: true,
+			            playInterval: 1500,
+			            data: ['201508','201509','201510','201511','201512'],
+			            label: { formatter : function(s) {
+			                    	return (new Date(s)).getFullYear(); } } },
+			        title: { subtext: '数据来自融360' },
+			        tooltip: {},
+			        legend: {
+			        						
+			            data: ['3个月', '6个月', '1年', '2年', '3年', '5年'] },
+			        calculable : true,
+			        grid: { top: 80, bottom: 100 },
+			        xAxis: [{
+			        	x: 'center',			   
+			        	'type':'category',
+			            'axisLabel':{'interval':0},
+			            'data':['活期','整存整取','零存整取','定活两便','存本取息','整存零取'] }],
+			        yAxis: [{ 
+			        	type: 'value',
+			        	name: '利率（%)',
+			        	max: 4 }],
+			        series: [
+			            {name: '3个月', type: 'bar'},
+			            {name: '6个月', type: 'bar'},
+			            {name: '1年', type: 'bar'},
+			            {name: '2年', type: 'bar'},
+			            {name: '3年', type: 'bar'},
+			            {name: '5年', type: 'bar'} ]
+			    },
+			    options: [{
+			        title : {text: '实际储蓄利率'},
+			        series : [
+			            {data: dataMap.data3month['201508']},
+			            {data: dataMap.data6month['201508']},
+			            {data: dataMap.data1year['201508']},
+			            {data: dataMap.data2year['201508']},
+			            {data: dataMap.data3year['201508']},
+			            {data: dataMap.data5year['201508']} ]}, {
+			        series : [
+			            {data: dataMap.data3month['201509']},
+			            {data: dataMap.data6month['201509']},
+			            {data: dataMap.data1year['201509']},
+			            {data: dataMap.data2year['201509']},
+			            {data: dataMap.data3year['201509']},
+			            {data: dataMap.data5year['201509']} ]}, {
+			        series : [
+			            {data: dataMap.data3month['201510']},
+			            {data: dataMap.data6month['201510']},
+			            {data: dataMap.data1year['201510']},
+			            {data: dataMap.data2year['201510']},
+			            {data: dataMap.data3year['201510']},
+			            {data: dataMap.data5year['201510']} ]}, {
+			        series : [
+			            {data: dataMap.data3month['201511']},
+			            {data: dataMap.data6month['201511']},
+			            {data: dataMap.data1year['201511']},
+			            {data: dataMap.data2year['201511']},
+			            {data: dataMap.data3year['201511']},
+			            {data: dataMap.data5year['201511']} ]}, {			      
+			        series : [
+			            {data: dataMap.data3month['201512']},
+			            {data: dataMap.data6month['201512']},
+			            {data: dataMap.data1year['201512']},
+			            {data: dataMap.data2year['201512']},
+			            {data: dataMap.data3year['201512']},
+			            {data: dataMap.data5year['201512']} ]},
+				]
+			};
+			myChart.setOption(option);
+		</script>
+	</body>
+</html>

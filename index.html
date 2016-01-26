@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<script src="echarts/echarts.js"></script> 
+		<style type="text/css">
+			div#container{width:100%}
+			div#header {background-color:#99bbbb;text-align: center;}
+			div#menu1 {width:30%;float:left;text-align: center}
+			div#contents {width:70%;float:left;text-align: center}
+			div#footer {background-color:#99bbbb;clear:both;text-align:center;}
+			li {list-style:none;}
+			</style>
+	</head>
+
+	<body>
+
+		<div id="container">		
+			<div id="header">
+				<h1>大数据中心</h1></div>						
+			<div id="menu1">			
+				<h2 align="left">房贷</h2>
+				<ul id="fangdai">
+					<li>
+						<a href ="tendency_average_loan_rates_first_home.html" 
+							target ="iframe_a" style="text-decoration:none">
+							首套房平均利率走势</a><br/></li>
+					<li>
+						<a href ="tendency_average_loan_rates_second_home.html" 
+							target ="iframe_a" style="text-decoration:none">
+							二套房平均利率走势</a><br/></li>
+					<li>
+						<a href ="proportion_discount_loan_rates_first_home.html" 
+							target ="iframe_a" style="text-decoration:none">
+							首套房最低利率折扣占比</a></li>
+					<li>
+						<a href ="proportion_discount_loan_rates_second_home.html" 
+							target ="iframe_a" style="text-decoration:none">
+							二套房最低利率折扣占比</a></li>
+					<li>
+						<a href ="proportion_preferential_loan_rates_first_home.html" 
+							target ="iframe_a" style="text-decoration:none">
+							首套房优惠利率占比</a></li>
+					<li>
+						<a href ="bank_distribution_preferential_loan_rates_first_home.html" 
+							target ="iframe_a" style="text-decoration:none">
+							提供首套房优惠利率的银行分布</a></li>
+					<li>
+						<a href ="mean_value_discount_loan_rates_leading_bank_first_home.html" 
+							target ="iframe_a" style="text-decoration:none">
+							主要银行的首套房最低利率折扣均值</a></li>	
+							
+				</ul>
+				
+				<h2 align="left">理财</h2>	
+				<ul id="licai">
+					<a href ="savings_interest_rate.html" 
+						target ="iframe_a" style="text-decoration:none">
+						分地区各银行储蓄利率</a></li>
+				</ul>
+				
+				<h2 align="left">信用卡</h2>
+				<ul id="xinyongka">
+				
+				</ul>
+				
+			</div>
+								
+			<div id="contents">
+				<iframe src="tendency_average_loan_rates_first_home.html" 
+						height=450 width=100% name="iframe_a" frameborder="0"></iframe>
+			</div>
+					
+		</div>
+		
+	</body>
+	
+</html>

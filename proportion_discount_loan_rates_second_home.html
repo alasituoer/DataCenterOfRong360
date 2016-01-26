@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>二套房最低利率折扣占比</title>
+		<script src="echarts/echarts.js"></script> 
+	</head>
+
+	<body>
+		<div id="menu" style="width: 90%;" align="right">			
+			<select>			
+				<option value="country">全国</option>
+				<option value="beijing">北京</option>
+				<option value="shanghai">上海</option>
+				<option value="guangzhou">广州</option>
+				<option value="qingdao">青岛</option>
+				<option value="nanjing">南京</option>
+				<option value="suzhou">苏州</option>
+				<option value="dalian">大连</option>
+				<option value="tianjin">天津</option>
+				<option value="wuxi">无锡</option>
+				<option value="chongqing">重庆</option>
+				<option value="zhuhai">珠海</option>
+				<option value="jinan">济南</option>
+				<option value="hangzhou">杭州</option>
+			</select>
+		</div>
+			    
+    	<div id="main" style="width: 100%;height:400px;">
+		    <script type="text/javascript">
+		        var myChart = echarts.init(document.getElementById('main'));
+		        var option = {
+					baseOption: {
+					    timeline: {
+					        axisType: 'category',
+					        autoPlay: true,
+					        playInterval: 2000,
+					        data: [ //name {a}, value {b} 
+					        	{value: '2015年1月', 
+					            	tooltip: { formatter: '{b}' } },
+					            {value: '2015年2月',
+					                tooltip: { formatter: '{b}' } },
+					            {value: '2015年3月',
+					                tooltip: { formatter: '{b}' } },
+					            {value: '2015年4月',
+					                tooltip: { formatter: '{b}' } },
+					            {value: '2015年5月',
+					                tooltip: { formatter: '{b}' } },
+					            {value: '2015年6月',
+					                tooltip: { formatter: '{b}' },
+					                symbol: 'diamond',
+					                symbolSize: 15 },
+					            {value: '2015年7月',
+					                tooltip: { formatter: '{b}' } },
+					            {value: '2015年8月',
+					                tooltip: { formatter: '{b}' } },
+					            {value: '2015年9月',
+					                tooltip: { formatter: '{b}' } },
+					            {value: '2015年10月',
+					                tooltip: { formatter: '{b}' } },
+					            {value: '2015年11月',
+					                tooltip: { formatter: '{b}' } },
+					            {value: '2015年12月',
+					                tooltip: { formatter: '{b}' },
+					                symbol: 'diamond',
+					                symbolSize: 15 } ],
+					        label: { formatter : function(s) { return s;} } },
+					    title : {
+					        text: '二套房最低利率折扣占比',
+					        subtext: '数据来自融360',
+					        x:'center' },
+					    tooltip : {
+					        trigger: 'item',
+					        formatter: "{b} <br/> {c} ({d}%)" },
+					    legend: {
+					        orient: 'vertical',
+							left: 'left',
+							data: ['基准以下','基准(含)~上浮10%','上浮10%(含)及以上','停贷'] },
+						calculable : true,
+					    grid: {
+					        top: 80, 
+					        bottom: 100},
+					    series: [ {
+				            name: '',
+				            type: 'pie',
+				            radius : '55%',
+				            center: ['50%', '50%'], } ] },
+				    options: [
+				        {
+				            name: 'January',
+					        series: [
+					            {data:[
+					            {value:0, name:'基准以下'}, 
+								{value:3, name:'基准(含)~上浮10%'},
+					            {value:486, name:'上浮10%(含)及以上'},
+					            {value:38, name:'停贷'} ], } ]
+					    },
+				        {
+				            name: 'February',
+				            series : [
+				                {data:[
+				                {value:0, name:'基准以下'}, 
+				                {value:2, name:'基准(含)~上浮10%'},
+				                {value:250, name:'上浮10%(含)及以上'},
+				                {value:22, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'March',
+				            series : [
+				                {data:[
+				                {value:0, name:'基准以下'}, 
+				                {value:13, name:'基准(含)~上浮10%'},
+				                {value:617, name:'上浮10%(含)及以上'},
+				                {value:38, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'April',
+				            series : [
+				                {data:[
+				                {value:0, name:'基准以下'}, 
+				                {value:10, name:'基准(含)~上浮10%'},
+				                {value:475, name:'上浮10%(含)及以上'},
+				                {value:39, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'May',
+				            series : [
+				                {data:[
+				                {value:1, name:'基准以下'}, 
+				                {value:28, name:'基准(含)~上浮10%'},
+				                {value:546, name:'上浮10%(含)及以上'},
+				                {value:46, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'June',
+				            series : [
+				                {data:[
+				                {value:2, name:'基准以下'}, 
+				                {value:24, name:'基准(含)~上浮10%'},
+				                {value:484, name:'上浮10%(含)及以上'},
+				                {value:42, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'July',
+				            series : [
+				                {data:[
+				                {value:5, name:'基准以下'}, 
+				                {value:35, name:'基准(含)~上浮10%'},
+				                {value:453, name:'上浮10%(含)及以上'},
+				                {value:41, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'August',
+				            series : [
+				                {data:[
+				                {value:0, name:'基准以下'}, 
+				                {value:51, name:'基准(含)~上浮10%'},
+				                {value:570, name:'上浮10%(含)及以上'},
+				                {value:24, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'September',
+				            series : [
+				                {data:[
+				                {value:0, name:'基准以下'}, 
+				                {value:33, name:'基准(含)~上浮10%'},
+				                {value:594, name:'上浮10%(含)及以上'},
+				                {value:22, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'October',
+				            series : [
+				                {data:[
+				                {value:2, name:'基准以下'}, 
+				                {value:29, name:'基准(含)~上浮10%'},
+				                {value:489, name:'上浮10%(含)及以上'},
+				                {value:20, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'November',
+				            series : [
+				                {data:[
+				                {value:2, name:'基准以下'}, 
+				                {value:26, name:'基准(含)~上浮10%'},
+				                {value:600, name:'上浮10%(含)及以上'},
+				                {value:21, name:'停贷'} ], } ]
+				        },
+				        {
+				            name: 'December',
+				            series : [
+				                {data:[
+				                {value:2, name:'基准以下'}, 
+				                {value:21, name:'基准(含)~上浮10%'},
+				                {value:518, name:'上浮10%(含)及以上'},
+				                {value:17, name:'停贷'} ], } ]
+				        },
+				    ]};
+				myChart.setOption(option);
+			</script>			    
+		</div>
+	</body>
+	
+</html>
